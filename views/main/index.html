@@ -1,0 +1,60 @@
+{%extends 'layout.html'%} 
+{%block content%} 
+{% for content in contents%}
+<article class="articleItem">
+  <div class="head-item">
+    <h1 class="head-title">
+      <span href="javascript:;">{{content.title}}</span>
+    </h1>
+    <div class="head-meta">
+      <span class="author">作者：
+        <span style="color:#e67e22;margin-right:10px;">{{content.user.username}}</span>
+      </span>
+      <span style="margin-right:10px;">阅读: {{content.views}}次</span>
+      <span class="head-time">{{content.addTime|date('Y年m月d日 h:i:s', -8*60)}}</span>
+    </div>
+  </div>
+  <div class="item-content">
+    <p>{{content.description}}</p>
+  </div>
+  <div class="readMore">
+    <a class="btn btn-danger" href="/view?contentid={{content._id.toString()}}">阅读全文</a>
+  </div>
+</article>
+{%endfor%} 
+{%endblock%} 
+{%block page%}
+<div class="container">
+  <nav aria-label="Page navigation" style="text-align:center;">
+    {% if count > 0%}
+    <ul class="pagination">
+      <li class="previous">
+        {% if category%}
+        <a href="{{url}}{{pageNum-1}}">上一页</a>                
+        {%else%}
+        <a href="{{url}}?page={{pageNum-1}}">上一页</a>        
+        {%endif%}
+      </li>
+
+      {% for pageNum in pageList %}
+      <li>
+          {% if category%}
+          <a href="{{url}}{{pageNum}}">{{Number(pageNum)}}</a>                
+          {%else%}
+          <a href="{{url}}?page={{pageNum}}">{{Number(pageNum)}}</a>        
+          {%endif%}
+      </li>
+      {%endfor%}
+      <li class="next">
+          {% if category%}
+          <a href="{{url}}{{pageNum+1}}">下一页</a>                
+          {%else%}
+          <a href="{{url}}?page={{pageNum+1}}">下一页</a>        
+          {%endif%}
+      </li>
+    </ul>
+    {%else%}
+    {%endif%}
+  </nav>
+</div>
+{%endblock%}

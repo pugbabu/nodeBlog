@@ -1,0 +1,42 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+<article class="articleItem">
+    <div class="head-item">
+        <h1 class="head-title"><span href="javascript:;">{{content.title}}</span></h1>
+        <div class="head-meta">
+        <span class="author">作者：<span style="color:#e67e22;margin-right:10px;">{{content.user.username}}</span></span>
+        <span style="margin-right:10px;">阅读: {{content.views}}次</span>
+        <span class="head-time">{{content.addTime|date('Y年m月d日 h:i:s', -8*60)}}</span>
+        </div>
+    </div>
+    <div class="item-content">
+        <p>{{content.content}}</p>
+    </div>
+</article>
+<div class="comment">
+    <h3 class="textCount clearfix">
+        <strong class="fl">评论</strong>
+        <span class="fr">一共有<em>{{content.comments.length}}</em>条评论</span>
+    </h3>
+    {% if userInfo.id%}
+    <div class="textMain clearfix">
+        <textarea rows="4" class="fl" id="commentText"></textarea>
+        <button class="btn btn-success fr" id="submit" style="line-height:30px;width:100px;">提交</button>
+    </div>
+    {%else%}
+    <p class="unLogin">你还没有登陆，请先登陆</p>
+    {%endif%}
+    <div class="msgBox" style="margin-top:20px;">
+        {% for comment in content.comments.reverse()%}
+        <div class="clearfix msgTitle" style="line-height:30px;">
+            <span class="fl msgName">{{comment.userName}}</span>
+            <span class="fr msgTime">{{comment.postTime|date('Y年m月d日 h:i:s', -8*60)}}</span>
+        </div>
+        <div class="message" style="line-height:30px;text-indent:5px;">
+            {{comment.postComment}}
+        </div>
+        {%endfor%}     
+    </div>
+</div>
+{%endblock%}
