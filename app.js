@@ -59,11 +59,11 @@ app.use('/api', require('./routers/api')) //api接口
 app.use('/', require('./routers/main')) //前台模块
 
 //监听app请求
-mongoose.connect('mongodb://localhost:27017/blog', function (err) {
+mongoose.connect('mongodb://127.0.0.1:27017/blog', function (err) {
   if (err) {
     console.log('数据库连接失败')
   } else {
     console.log('数据库连接成功')
-    app.listen(9000)
+    app.listen(80)
   }
 })
