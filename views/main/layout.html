@@ -23,9 +23,8 @@
       <div class="overlay"></div>
       <div class="intrude-less">
         <header id="header" class="inner">
-          <a href="/" class="profilepic">
-            <img src="../../public/images/avatar.jpeg" class="animated zoomIn">
-          </a>
+          <div class="profilepic">
+          </div>
           <hgroup>
             <h1 class="header-author">
              Dalei
@@ -54,7 +53,7 @@
                       <a href="/?category={{cate._id.toString()}}" class="category">{{cate.name}}</a>
                     </li>
                     {%endif%} {%endfor%}
-                  </ul>
+                    </ul>
                 </nav>
                 <nav class="header-nav">
                   <ul class="social">
@@ -80,7 +79,8 @@
           {% if userInfo.id %}
           <div class="userInfo">
             {% if userInfo.isAdmin %}
-            <p>{{userInfo.username}}管理员你好,&nbsp;
+            <p style="line-height:30px;">
+              <span style="color:#ea6f5a;margin-right:10px;">{{userInfo.username}}</span>管理员你好,&nbsp;
               <a href="/admin" style="cursor:pointer;">去后台管理博客</a>
               <a id="logOut">退出</a>
             </p>
@@ -104,12 +104,13 @@
             <form class="form-horizontal">
               <div class="inputContent">
                 <i class="glyphicon glyphicon-user"></i>
-                <input type="text" placeholder="用户名" id="username1" />                
+                <input type="text" placeholder="用户名" id="username1" autocomplete="off" />                
               </div>
               <div class="inputContent">
                 <i class="glyphicon glyphicon-modal-window"></i>
-                <input type="password" placeholder="密码" id="inputPassword3" />                
+                <input type="password" placeholder="密码" id="inputPassword3" autocomplete="off" />                
               </div>
+              <div class="errorMsg">dfsd</div>
               <a class="btn btn-default" id="loginBtn">登录</a>
             </form>
           </div>
@@ -117,15 +118,15 @@
               <form class="form-horizontal">
                 <div class="inputContent">
                   <i class="glyphicon glyphicon-user"></i>
-                  <input type="text" placeholder="用户名" id="username2"/>                
+                  <input type="text" placeholder="用户名" id="username2" autocomplete="off"/>                
                 </div>
                 <div class="inputContent">
                   <i class="glyphicon glyphicon-modal-window"></i>
-                  <input type="password" placeholder="密码" id="inputPassword4"/>                
+                  <input type="password" placeholder="密码" id="inputPassword4" autocomplete="off"/>                
                 </div>
                 <div class="inputContent">
                     <i class="glyphicon glyphicon-modal-window"></i>
-                    <input type="password" placeholder="确认密码" id="repassword1"/>                
+                    <input type="password" placeholder="确认密码" id="repassword1" autocomplete="off"/>                
                   </div>
                 <a class="btn btn-default" id="registerBtn">注册</a>
               </form>

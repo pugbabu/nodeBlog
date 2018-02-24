@@ -1,3 +1,4 @@
+
 $(function () {
   var $registerBtn = $('#registerBtn')
   var $loginBtn = $('#loginBtn')
@@ -46,6 +47,14 @@ $(function () {
           window.location.reload()
           // $('.userInfo').show()
           // $('.loginBox').hide()
+        } else {
+          console.log($('.errorMsg'))
+          console.log(res.msg)
+          $('.errorMsg').show()
+          $('.errorMsg').html(res.msg)
+          setTimeout(() => {
+            $('.errorMsg').hide()
+          }, 1000);
         }
         
       }
@@ -106,6 +115,13 @@ $(function () {
     $('.loginToogle').removeClass('active')
     $('.registerToogle').addClass('active')
   })
-
+  $('.unLogin').click(function(){
+    $('.signBox').show()
+  })
+  $('.profilepic').hover(function(){
+    $(this).css('transform', 'scale(1.2)')
+  },function(){
+    $(this).css('transform', 'scale(1)')
+  })
 
 })

@@ -27,10 +27,11 @@ html,body{
 .navbar{
     margin: 0;
 }
-.navbar-nav li .category{
-    display: block;
-    padding: 0 21px;
-    line-height: 50px;
+.header-menu li .category{
+    /* display: block; */
+    /* padding: 0 21px; */
+    line-height: 30px;
+    cursor: pointer;
 }
 .header-menu li .focus{
     /* color: #e67e22; */
@@ -165,16 +166,16 @@ aside{
     -webkit-box-pack: center;
     -webkit-box-align: center;
     text-align: center;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgb(255, 255, 255);
-    border-image: initial;
     border-radius: 50%;
     margin: 0px auto;
     overflow: hidden;
-    background: rgb(136, 172, 219);
+    background: url(../images/avatar.jpeg) no-repeat center;
+    background-size:100%; 
+    box-shadow: 0 0 8px rgba(0,0,0,.1);
+    cursor: pointer;
 }
 .profilepic img{
+    display: block;
     width: 100%;
     height: 100%;
     animation-duration: 0.4s;
@@ -365,4 +366,12 @@ aside{
     display: block;
     clear: both;
     margin-top: 20px;
+}
+.errorMsg{
+    font-size: 14px;
+    text-align: left;
+    color: red;
+    line-height: 30px;
+    display: none;
+    height: 30px;
 }
