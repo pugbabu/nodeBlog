@@ -24,6 +24,9 @@ $(function () {
         if (res.code === 1000) {
           $('.registerBox').hide()
           $('.loginBox').show()
+          $('.loginToogle').addClass('active')
+          $('.registerToogle').removeClass('active')
+
         }
       }
     })
@@ -79,6 +82,29 @@ $(function () {
         }
       }
     })
+  })
+  //右下角图标点击，弹出登陆框
+  $('.loginIcon').click(function(){
+    $('.signBox').show(300)
+  })
+  // 弹窗关闭
+  $('.signBox').click(function(e){
+    e = window.event || e
+    if (e.target == $(this)[0]) {
+      $('.signBox').hide(300)  
+    }
+  })
+  $('.loginToogle').click(function(){
+    $('.loginBox').show()
+    $('.registerBox').hide()
+    $('.loginToogle').addClass('active')
+    $('.registerToogle').removeClass('active')
+  })
+  $('.registerToogle').click(function(){
+    $('.registerBox').show()
+    $('.loginBox').hide()
+    $('.loginToogle').removeClass('active')
+    $('.registerToogle').addClass('active')
   })
 
 

@@ -64,6 +64,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/blog', function (err) {
     console.log('数据库连接失败')
   } else {
     console.log('数据库连接成功')
-    app.listen(8080)
+    app.listen(80)
   }
 })

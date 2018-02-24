@@ -26,7 +26,43 @@
 {%block page%}
 <div class="block-page">
   <nav aria-label="Page navigation" style="text-align:center;">
-    {% if count > 0%}
+      {% if count > 0%}
+      <ul class="pagination">
+          <li>
+          {% if category%}            
+            <a href="{{url}}{{pageNum-1}}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          {%else%}
+          <a href="{{url}}?page={{pageNum-1}}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+          </a>
+          {%endif%}
+          </li>
+          {% for pageNum in pageList %}
+          <li>
+            {% if category%}
+            <a href="{{url}}{{pageNum}}">{{Number(pageNum)}}</a>                
+            {%else%}
+            <a href="{{url}}?page={{pageNum}}">{{Number(pageNum)}}</a>        
+            {%endif%}
+          </li>
+          {%endfor%}
+          <li>
+            {% if category%}            
+              <a href="{{url}}{{pageNum+1}}" aria-label="Previous">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            {%else%}
+            <a href="{{url}}?page={{pageNum+1}}" aria-label="Previous">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+            {%endif%}
+          </li>
+        </ul>
+        {%else%}
+        {%endif%}
+    <!-- {% if count > 0%}
     <ul class="pagination">
       <li class="previous">
         {% if category%}
@@ -54,7 +90,7 @@
       </li>
     </ul>
     {%else%}
-    {%endif%}
+    {%endif%} -->
   </nav>
 </div>
 {%endblock%}
