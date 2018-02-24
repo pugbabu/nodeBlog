@@ -5,46 +5,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Node搭建个人博客</title>
+  <meta name="author" content="">
+  <title>天龙巴布的小屋</title>
+  <link rel="icon" href="bitbug2.ico">
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/public/css/main.css" />
   <link rel="stylesheet" type="text/css" href="/public/css/reset.css" />
+
   <script src="/public/js/jquery.min.js"></script>
   <script src="/public/js/main.js"></script>
 </head>
 
 <body>
-  <header class="main-header"></header>
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <ul class="nav navbar-nav">
-        {% if category%}
-        <li>
-          <a href="/" class="category">首页</a>
-        </li>
-        {%else%}
-        <li>
-          <a href="/" class="category focus">首页</a>
-        </li>
-        {%endif%} {% for cate in categories%} {% if category == cate._id.toString()%}
-        <li>
-          <a href="/?category={{cate._id.toString()}}" class="category focus">{{cate.name}}</a>
-        </li>
-        {%else%}
-        <li>
-          <a href="/?category={{cate._id.toString()}}" class="category">{{cate.name}}</a>
-        </li>
-        {%endif%} {%endfor%}
-      </ul>
+  <div class="container-fluid" style="padding:0;margin:0;height:100%;">
+    <div class="left-col">
+      <div class="overlay"></div>
+      <div class="intrude-less">
+        <header id="header" class="inner">
+          <a href="/" class="profilepic">
+            <img src="../../public/images/avatar.jpeg" class="animated zoomIn">
+          </a>
+          <hgroup>
+            <h1 class="header-author">
+              <a href="/">Dalei</a>
+            </h1>
+          </hgroup>
+          <p class="header-subtitle">总有一个人会欣赏你的坚持</p>
+          <div id="switch-area" class="switch-area">
+                <nav class="header-menu">
+                  <ul>
+                    {% if category%}
+                    <li>
+                      <a href="/">主页</a>
+                    </li>
+                    {%else%}
+                    <li>
+                      <a href="/" class="focus">主页</a>
+                    </li>
+                    {%endif%} {% for cate in categories%} {% if category == cate._id.toString()%}
+                    <li>
+                      <a href="/?category={{cate._id.toString()}}" class="category focus">{{cate.name}}</a>
+                    </li>
+                    {%else%}
+                    <li>
+                      <a href="/?category={{cate._id.toString()}}" class="category">{{cate.name}}</a>
+                    </li>
+                    {%endif%} {%endfor%}
+                  </ul>
+                </nav>
+                <nav class="header-nav">
+                  <ul class="social">
+                    <a class="fa 新浪微博" href="/sina weibo" title="新浪微博"></a>
+                    <a class="fa GitHub" href="#" title="GitHub"></a>
+                    <a class="fa 知乎" href="/zhihu" title="知乎"></a>
+                    <a class="fa 简书" href="/jianshu" title="简书"></a>
+                    <a class="fa QQ" href="#" title="QQ"></a>
+                    <a class="fa 微信" href="/Wechat" title="微信"></a>
+
+                  </ul>
+                </nav>
+          </div>
+        </header>
+      </div>
     </div>
-  </nav>
-  <div class="content">
-    <div class="container clearfix">
-      <section class="main-content">
-        {%block content%}{%endblock%}
-      </section>
-      <aside>
+    <div class="content">
+          {%block content%}{%endblock%}
+        <!-- <aside>
         {% if userInfo.id %}
         <div class="userInfo">
           {% if userInfo.isAdmin %}
@@ -75,7 +102,8 @@
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-6">
                 <a class="btn btn-default" id="loginBtn">登录</a>
-                <span>还未注册，快去</span><a class="btn btn-success" id="registerBtn">注册！</a>
+                <span>还未注册，快去</span>
+                <a class="btn btn-success" id="toRegitster">注册！</a>
               </div>
             </div>
           </form>
@@ -108,11 +136,10 @@
           </form>
         </div>
         {%endif%}
-      </aside>
+      </aside> -->
+      {%block page%}{%endblock%}
     </div>
-    {%block page%}{%endblock%}
   </div>
-  <footer></footer>
 </body>
 
 </html>

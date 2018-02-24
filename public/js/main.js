@@ -3,7 +3,13 @@ $(function () {
   var $loginBtn = $('#loginBtn')
   var $logOut = $('#logOut')
   var submitBtn = $('#submit')
+  var toRegitster = $('#toRegitster')
+  toRegitster.click(function(){
+    $('.loginBox').hide()
+    $('.registerBox').show()
+  })
   $registerBtn.click(function () {
+    console.log($('#username2').val(), 'tijiao')
     $.ajax({
       type: 'post',
       url: '/api/user/register',
