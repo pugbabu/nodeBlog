@@ -140,7 +140,7 @@ aside{
     position: fixed;
     opacity: 1;
     height: 100%;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     background: rgb(255, 255, 255);
     z-index: 9999;
     transition: all 0.2s ease-in;
@@ -213,12 +213,12 @@ aside{
     width: 100%;
     min-height: 260px;
     font-size: 0.875rem;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .header-menu{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     font-weight: 550;
-    line-height: 2.3rem;
+    line-height: 30px;
     font-family: inherit;
     text-transform: uppercase;
     float: none;
@@ -374,4 +374,85 @@ aside{
     line-height: 30px;
     display: none;
     height: 30px;
+}
+.aboutIcon{
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url(../images/aboutme.png) no-repeat center;
+    background-size:100%;
+    margin: 0 auto;
+    cursor: pointer; 
+}
+.personTag{
+    margin: 0 auto;
+    font-weight: 550;
+    line-height: 30px;
+    font-family: inherit;
+    text-transform: uppercase;
+    float: none;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    overflow: visible;
+    color: rgb(105, 105, 105);
+    position: relative;
+}
+.nav-tag-wrap{
+    display: none;
+    position: absolute;
+    top: -134px;    
+    left: 140px;
+    width: 300px;
+    padding-left: 14px;
+    box-sizing: border-box;
+    -webkit-animation: fade-in-left .6s both;
+    -moz-animation: fade-in-left .6s both;
+    animation: fade-in-left .6s both;
+    z-index: 10000;
+}
+.nav-tag-arrow{
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    margin-top: -8px;
+    line-height: 0;
+    font-size: 0;
+    border-width: 8px 12px;
+    border-style: solid;
+    border-color: transparent #000 transparent transparent;
+}
+.widget-wrap{
+    height: 300px;
+    line-height: 22px;
+    color: #fff;
+    text-align: left;
+    background-color: rgba(0,0,0,.95);
+    box-sizing: border-box;
+    padding: 15px;
+}
+.widget-title{
+    font-size: 1em;
+    font-weight: 400;
+}
+.tag-list{
+    margin-top: 14px;
+    height: 232px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.tag-list-item{
+    float: left;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+.tag-list-link{
+    display: block;
+    color: #e6e6e6;
+    padding: 2px 10px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
 }

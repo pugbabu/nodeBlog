@@ -27,55 +27,99 @@
           </div>
           <hgroup>
             <h1 class="header-author">
-             Dalei
+              Dalei
             </h1>
           </hgroup>
           <p class="header-subtitle">总有一个人会欣赏你的坚持</p>
           <div class="author-work">Web Developer &amp; Designer</div>
-          <div class="author-location"><i class="glyphicon glyphicon-screenshot"></i> <span class="vm">HangZhou, China</span></div>
+          <div class="author-location">
+            <i class="glyphicon glyphicon-screenshot"></i>
+            <span class="vm">HangZhou, China</span>
+          </div>
           <div id="switch-area" class="switch-area">
-                <nav class="header-menu">
-                  <ul>
-                    {% if category%}
-                    <li>
-                      <a href="/">主页</a>
-                    </li>
-                    {%else%}
-                    <li>
-                      <a href="/" class="focus">主页</a>
-                    </li>
-                    {%endif%} {% for cate in categories%} {% if category == cate._id.toString()%}
-                    <li>
-                      <a href="/?category={{cate._id.toString()}}" class="category focus">{{cate.name}}</a>
-                    </li>
-                    {%else%}
-                    <li>
-                      <a href="/?category={{cate._id.toString()}}" class="category">{{cate.name}}</a>
-                    </li>
-                    {%endif%} {%endfor%}
+            <nav class="header-menu">
+              <ul>
+                {% if category%}
+                <li>
+                  <a href="/">主页</a>
+                </li>
+                {%else%}
+                <li>
+                  <a href="/" class="focus">主页</a>
+                </li>
+                {%endif%} {% for cate in categories%} {% if category == cate._id.toString()%}
+                <li>
+                  <a href="/?category={{cate._id.toString()}}" class="category focus">{{cate.name}}</a>
+                </li>
+                {%else%}
+                <li>
+                  <a href="/?category={{cate._id.toString()}}" class="category">{{cate.name}}</a>
+                </li>
+                {%endif%} {%endfor%}
+              </ul>
+            </nav>
+            <div class="personTag">
+              <span style="cursor:pointer;">标签</span>
+              <div id="nav-tags" class="nav-tag-wrap tag-show">
+                <i class="nav-tag-arrow"></i>
+                <div class="widget-wrap">
+                  <h3 class="widget-title">
+                    <i class="icon-tag vm"></i>
+                    <span class="vm">标签</span>
+                  </h3>
+                  <div class="widget">
+                    <ul class="tag-list">
+                      <li class="tag-list-item">
+                        <a class="tag-list-link" >HTML</a>
+                      </li>
+                      <li class="tag-list-item">
+                        <a class="tag-list-link" >CSS</a>
+                      </li>
+                      <li class="tag-list-item">
+                          <a class="tag-list-link" >Javascript</a>
+                        </li>
+                        <li class="tag-list-item">
+                          <a class="tag-list-link" >Vue</a>
+                        </li>
+                      <li class="tag-list-item">
+                        <a class="tag-list-link">Hexo</a>
+                      </li>
+                      <li class="tag-list-item">
+                        <a class="tag-list-link" >Http</a>
+                      </li>
+                      <li class="tag-list-item">
+                        <a class="tag-list-link">Nodejs</a>
+                      </li>
+                      <li class="tag-list-item">
+                        <a class="tag-list-link">php</a>
+                      </li>
                     </ul>
-                </nav>
-                <nav class="header-nav">
-                  <ul class="social">
-                    <a class="fa weibo" href="https://weibo.com/u/5684093068" title="新浪微博" target="blank"></a>
-                    <a class="fa github" href="https://github.com/pugbabu" title="GitHub" target="blank"></a>
-                    <!-- <a class="fa zhihu" href="/zhihu" title="知乎"></a> -->
-                    <a class="fa jianshu" href="https://www.jianshu.com/u/ace7791ce366" title="简书" target="blank"></a>
-                    <!-- <a class="fa QQ" href="#" title="QQ"></a> -->
-                    <!-- <a class="fa 微信" href="/Wechat" title="微信"></a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="aboutIcon"></a>
 
-                  </ul>
-                </nav>
+            <nav class="header-nav">
+              <ul class="social">
+                <a class="fa weibo" href="https://weibo.com/u/5684093068" title="新浪微博" target="blank"></a>
+                <a class="fa github" href="https://github.com/pugbabu" title="GitHub" target="blank"></a>
+                <!-- <a class="fa zhihu" href="/zhihu" title="知乎"></a> -->
+                <a class="fa jianshu" href="https://www.jianshu.com/u/ace7791ce366" title="简书" target="blank"></a>
+                <!-- <a class="fa QQ" href="#" title="QQ"></a> -->
+                <!-- <a class="fa 微信" href="/Wechat" title="微信"></a> -->
+
+              </ul>
+            </nav>
           </div>
         </header>
       </div>
     </div>
     <div class="content">
-      {%block content%}{%endblock%}
-      {%block page%}{%endblock%}
+      {%block content%}{%endblock%} {%block page%}{%endblock%}
       <div class="loginIcon"></div>
       <div class="signBox">
-        <div class="signContent">     
+        <div class="signContent">
           {% if userInfo.id %}
           <div class="userInfo">
             {% if userInfo.isAdmin %}
@@ -90,7 +134,7 @@
               <a id="logOut">退出</a>
             </p>
             {%endif%}
-            
+
           </div>
           {% else %}
           <h4 class="title">
@@ -104,36 +148,36 @@
             <form class="form-horizontal">
               <div class="inputContent">
                 <i class="glyphicon glyphicon-user"></i>
-                <input type="text" placeholder="用户名" id="username1" autocomplete="off" />                
+                <input type="text" placeholder="用户名" id="username1" autocomplete="off" />
               </div>
               <div class="inputContent">
                 <i class="glyphicon glyphicon-modal-window"></i>
-                <input type="password" placeholder="密码" id="inputPassword3" autocomplete="off" />                
+                <input type="password" placeholder="密码" id="inputPassword3" autocomplete="off" />
               </div>
               <div class="errorMsg">dfsd</div>
               <a class="btn btn-default" id="loginBtn">登录</a>
             </form>
           </div>
           <div class="registerBox">
-              <form class="form-horizontal">
-                <div class="inputContent">
-                  <i class="glyphicon glyphicon-user"></i>
-                  <input type="text" placeholder="用户名" id="username2" autocomplete="off"/>                
-                </div>
-                <div class="inputContent">
-                  <i class="glyphicon glyphicon-modal-window"></i>
-                  <input type="password" placeholder="密码" id="inputPassword4" autocomplete="off"/>                
-                </div>
-                <div class="inputContent">
-                    <i class="glyphicon glyphicon-modal-window"></i>
-                    <input type="password" placeholder="确认密码" id="repassword1" autocomplete="off"/>                
-                  </div>
-                <a class="btn btn-default" id="registerBtn">注册</a>
-              </form>
-            </div>    
+            <form class="form-horizontal">
+              <div class="inputContent">
+                <i class="glyphicon glyphicon-user"></i>
+                <input type="text" placeholder="用户名" id="username2" autocomplete="off" />
+              </div>
+              <div class="inputContent">
+                <i class="glyphicon glyphicon-modal-window"></i>
+                <input type="password" placeholder="密码" id="inputPassword4" autocomplete="off" />
+              </div>
+              <div class="inputContent">
+                <i class="glyphicon glyphicon-modal-window"></i>
+                <input type="password" placeholder="确认密码" id="repassword1" autocomplete="off" />
+              </div>
+              <a class="btn btn-default" id="registerBtn">注册</a>
+            </form>
+          </div>
           {%endif%}
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </body>
