@@ -123,5 +123,8 @@ $(function () {
   },function(){
     $(this).css('transform', 'scale(1)')
   })
+  $('.tagText').click(function(){
+    $('#nav-tags').show()
+  })
 
 })

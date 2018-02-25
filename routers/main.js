@@ -64,7 +64,10 @@ router.get('/view', function(req, res, next){
         res.render('main/view', data)                
     })
 })
-
+router.get('/about', function(req,res,next){
+    console.log(11)
+    res.render('main/about', data)
+})
 
 
 

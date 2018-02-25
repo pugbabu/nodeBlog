@@ -59,7 +59,7 @@
               </ul>
             </nav>
             <div class="personTag">
-              <span style="cursor:pointer;">标签</span>
+              <span style="cursor:pointer;" class="tagText">标签</span>
               <div id="nav-tags" class="nav-tag-wrap tag-show">
                 <i class="nav-tag-arrow"></i>
                 <div class="widget-wrap">
@@ -98,8 +98,7 @@
                 </div>
               </div>
             </div>
-            <a class="aboutIcon"></a>
-
+            <a class="aboutIcon" href="/about"></a>
             <nav class="header-nav">
               <ul class="social">
                 <a class="fa weibo" href="https://weibo.com/u/5684093068" title="新浪微博" target="blank"></a>
@@ -116,7 +115,9 @@
       </div>
     </div>
     <div class="content">
-      {%block content%}{%endblock%} {%block page%}{%endblock%}
+      {%block content%}{%endblock%} 
+      {%block page%}{%endblock%}
+      {%block about%}{%endblock%}
       <div class="loginIcon"></div>
       <div class="signBox">
         <div class="signContent">
