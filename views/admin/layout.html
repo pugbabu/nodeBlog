@@ -9,25 +9,43 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/wangEditor.min.js"></script>
+    
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <style>
+        #bs-example-navbar-collapse-1{
+            float: right;
+            /* width: 80%; */
+            display: block;
+            overflow: hidden;
+        }
+        #bs-example-navbar-collapse-1 .fl{
+            float: left;
+        }
+        #bs-example-navbar-collapse-1 .nav-left{
+            float: left;
+        }
+        #bs-example-navbar-collapse-1 .nav-right{
+            float: left;
+        }
+    </style>
 </head>
 
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+            <div class="navbar-header" style="float:left">
                 <a class="navbar-brand" href="/admin">后台管理</a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+                <ul class="nav navbar-nav nav-left">
+                    <li class="fl">
                         <a href="/admin/user">用户管理</a>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown fl">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类管理
                             <span class="caret"></span>
                         </a>
@@ -40,7 +58,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown fl">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">内容管理
                             <span class="caret"></span>
                         </a>
@@ -54,8 +72,8 @@
                         </ul>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
+                <ul class="nav navbar-nav navbar-right nav-right">
+                    <li class="dropdown fl">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{userInfo.username}}
                             <span class="caret"></span>
                         </a>

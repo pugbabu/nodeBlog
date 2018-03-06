@@ -11,7 +11,9 @@
         </div>
     </div>
     <div class="item-content">
-        <p>{{content.content}}</p>
+        <!-- 将html字符串以html的形式输出 -->
+            {% autoescape false %}{{ content.content }}{% endautoescape %}
+        <!-- <p>{{content.content}}</p> -->
     </div>
 </article>
 <div class="comment">
@@ -39,4 +41,11 @@
         {%endfor%}     
     </div>
 </div>
+<script>
+    $(function(){
+        // alert(121)
+        // console.log(content)
+        // $('.item-content').html(content.content)
+    })
+</script>
 {%endblock%}

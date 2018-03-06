@@ -224,6 +224,7 @@ router.get('/content/add', function(req, res, next) {
 })
 
 router.post('/content/add', function(req,res,next) {
+    console.log(res.body)
     if (req.body.title == '') {
         res.render('admin/error', {
             msg: '分类标题不能为空',
