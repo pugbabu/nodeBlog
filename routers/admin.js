@@ -292,8 +292,8 @@ router.get('/content/edit', function(req, res, next) {
 })
 
 router.post('/content/edit', function(req, res, next) {
-    console.log(req.query.id, '大家都')
-    var id = req.query.id || ''
+    console.log(req.body.id, '大家都')
+    var id = req.body.id || ''
     console.log(req.body, '秀个 i')
     console.log(req.body, '大口大口')
     if (req.body.title == '') {
