@@ -11,6 +11,7 @@ router.use(function(req, res, next){
     next()
 })
 router.get('/', function(req,res,next) {
+    res.setHeader("Content-Type", "text/html");
     res.render('admin/index', {
         userInfo: req.userInfo,
     })
@@ -90,11 +91,11 @@ router.post('/category/add', function(req, res, next) {
             })
             return Promise.reject()
         }
-        return new Category({
+        return new Category({ 
             name: name
         }).save()
     }).then(function(){
-        res.render('admin/success',{
+        res.render('admin/success.html',{
             msg: '添加成功',
             url: '/admin/category'
         })
@@ -224,8 +225,8 @@ router.get('/content/add', function(req, res, next) {
 })
 
 router.post('/content/add', function(req,res,next) {
-    console.log(res.body)
     if (req.body.title == '') {
+        console.log('哈哈')
         res.render('admin/error', {
             msg: '分类标题不能为空',
             userInfo: req.userInfo
@@ -292,10 +293,7 @@ router.get('/content/edit', function(req, res, next) {
 })
 
 router.post('/content/edit', function(req, res, next) {
-    console.log(req.body.id, '大家都')
     var id = req.body.id || ''
-    console.log(req.body, '秀个 i')
-    console.log(req.body, '大口大口')
     if (req.body.title == '') {
         res.render('admin/error', {
             userInfo: req.userInfo,

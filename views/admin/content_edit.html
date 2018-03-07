@@ -29,6 +29,7 @@
     <div class="form-group">
         <label for="content">内容</label>
         <div id="editor2">
+            <p>{{contents.content}}</p>
         </div>
         <!-- <textarea class="form-control" id="content" rows="10" name="content">{{contents.content}}</textarea> -->
     </div>
@@ -36,23 +37,16 @@
 </form>
 <script type="text/javascript">
     $(function(){
-        
         var E = window.wangEditor
         var editor = new E('#editor2')
         // 或者 var editor = new E( document.getElementById('editor') )
         editor.create()
-        editor.txt.clear()
-        var contentHtml = '{{contents.content}}'
-        editor.txt.html(contentHtml)
-        // console.log(document.getElementById())
         document.getElementById('editContent').addEventListener('click', function(){
             var title = $('#title').val()
             var description = $('#description').val()
             var category = $('#category option:selected').val()
             var content = editor.txt.html()          
-            console.log(location.href) 
             var id = location.href.split('=')[1]
-            console.log(id)
             $.ajax({
                 type: 'post',
                 url: '/admin/content/edit',
